@@ -35,11 +35,6 @@ Products.init(
       type: Sequelize.INTEGER,
       allowNull: false,
     },
-
-    qty: {
-      type: Sequelize.INTEGER,
-      defaultValue: 1,
-    },
   },
   {
     sequelize: db,
