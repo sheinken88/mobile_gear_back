@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Users, Products } = require("../models");
+const { Users, Products, Brands, Categories } = require("../models");
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");
 
@@ -44,13 +44,13 @@ router.post("/logout", (req, res) => {
 });
 
 router.get("/products", (req, res) => {
-  Products.findAll()
+  Products.findAll({ include: [Brands, Categories] })
     .then((data) => res.send(data))
     .catch(() => res.send(404));
 });
 
 router.get("/products/:id", (req, res) => {
-  Products.findByPk(Number(req.params.id))
+  Products.findByPk(Number(req.params.id), { include: [Brands, Categories] })
     .then((data) => res.send(data))
     .catch(() => res.send(404));
 });
