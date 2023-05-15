@@ -2,7 +2,15 @@ const express = require("express");
 const router = express.Router();
 const { getConditions } = require("./utils");
 
-const { Users, Products, Brands, Categories, Orders } = require("../models");
+const {
+  Users,
+  Products,
+  Brands,
+  Categories,
+  Orders,
+  Ordersproducts,
+} = require("../models");
+
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");
 
@@ -73,6 +81,7 @@ router.post("/cart/add", async (req, res) => {
     const order = await Orders.create({ status: "cart" });
     const product = await Products.findByPk(req.body.id);
     order.setProducts(product);
+    console.log(order, product);
     res.sendStatus(200);
   } catch (err) {
     console.log(err);
@@ -87,6 +96,28 @@ router.post("/cart/delete", async (req, res) => {
     const product = await Products.findByPk(req.body.id, { include: Orders });
     product.removeOrder(product.orders[0]);
     res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(404);
+  }
+});
+
+router.get("/cart/count", async (req, res) => {
+  try {
+    let ordersproducts = await Ordersproducts.findAll();
+    let products = {};
+
+    for (let i = 0; i < ordersproducts.length; i++) {
+      let orderproduct = ordersproducts[i];
+      const product = await Products.findByPk(orderproduct.productId);
+
+      if (products[product.modelName]) {
+        products[product.modelName].qty++;
+      } else {
+        products[product.modelName] = { qty: 1, data: product };
+      }
+    }
+    res.send(products);
   } catch (err) {
     console.log(err);
     res.sendStatus(404);

@@ -5,6 +5,7 @@ const Categories = require("./Categories");
 const Orders = require("./Orders");
 const Payments = require("./Payments");
 const Deliveries = require("./Deliveries");
+const Ordersproducts = require("./Ordersproducts");
 
 Products.belongsTo(Brands);
 Products.belongsTo(Categories);
@@ -13,8 +14,12 @@ Orders.belongsTo(Users);
 Orders.belongsTo(Payments);
 Orders.belongsTo(Deliveries);
 
-Orders.belongsToMany(Products, { through: "ordersproducts" });
-Products.belongsToMany(Orders, { through: "ordersproducts" });
+Orders.belongsToMany(Products, {
+  through: "ordersproducts",
+});
+Products.belongsToMany(Orders, {
+  through: "ordersproducts",
+});
 
 module.exports = {
   Users,
@@ -24,4 +29,5 @@ module.exports = {
   Orders,
   Deliveries,
   Payments,
+  Ordersproducts,
 };
