@@ -1,9 +1,9 @@
-const Sequelize = requie("sequelize");
+const Sequelize = require("sequelize");
 const db = require("../db");
 
-class Order extends Sequelize.model {}
+class Orders extends Sequelize.Model {}
 
-Order.init(
+Orders.init(
   {
     user_id: { type: Sequelize.INTEGER, allowNull: false },
     product_id: { type: Sequelize.INTEGER, allowNull: false },
@@ -13,7 +13,7 @@ Order.init(
     delivery_id: { type: Sequelize.INTEGER, allowNull: false },
     status: { type: Sequelize.STRING, allowNull: false },
   },
-  { sequelize: db, modelName: "Order" }
+  { sequelize: db, modelName: "orders" }
 );
 
-module.exports = Order;
+module.exports = Orders;
