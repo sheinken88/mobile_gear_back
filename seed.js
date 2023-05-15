@@ -28,7 +28,7 @@ const seeder = () => {
   let users = [];
   let products = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 50; i++) {
     users.push({
       isAdmin: false,
       firstName: faker.person.firstName(),
