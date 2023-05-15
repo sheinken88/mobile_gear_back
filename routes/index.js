@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { getConditions } = require("./utils");
 
 const { Users, Products, Brands, Categories } = require("../models");
 const validateUser = require("../middleware/auth");
@@ -43,16 +44,26 @@ router.post("/logout", (req, res) => {
   res.sendStatus(204);
 });
 
-router.get("/products", (req, res) => {
-  Products.findAll({ include: [Brands, Categories] })
-    .then((data) => res.send(data))
-    .catch(() => res.send(404));
+router.get("/products", async (req, res) => {
+  try {
+    const conditions = getConditions(req.query);
+    const data = await Products.findAll(conditions);
+    res.send(data);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(404);
+  }
 });
 
-router.get("/products/:id", (req, res) => {
-  Products.findByPk(Number(req.params.id), { include: [Brands, Categories] })
-    .then((data) => res.send(data))
-    .catch(() => res.send(404));
+router.get("/products/:id", async (req, res) => {
+  try {
+    const data = await Products.findByPk(Number(req.params.id), {
+      include: [Brands, Categories],
+    });
+    res.send(data);
+  } catch {
+    res.sendStatus(404);
+  }
 });
 
 // export
