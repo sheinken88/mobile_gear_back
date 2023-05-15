@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 const { Users, Products, Brands, Categories } = require("../models");
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");

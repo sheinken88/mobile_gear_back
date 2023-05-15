@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const db = require("./db");
+const models = require("./models");
 
 const routes = require("./routes");
 
@@ -18,9 +19,10 @@ app.use(cookieParser());
 
 app.use("/", routes);
 
-db.sync({ force: false })
-  .then(function () {
+db.sync({ force: true })
+  .then(() => {
     app.listen(8080, () => console.log("Server listening on port 8080"));
   })
   .catch(console.error);
+
 module.exports = app;
