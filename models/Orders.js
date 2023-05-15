@@ -7,11 +7,11 @@ Orders.init(
   {
     totalValue: {
       type: Sequelize.FLOAT,
-      allowNull: false,
+      // allowNull: false,
     },
     status: {
       type: Sequelize.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
   },
   { sequelize: db, modelName: "orders" }

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { getConditions } = require("./utils");
 
-const { Users, Products, Brands, Categories } = require("../models");
+const { Users, Products, Brands, Categories, Orders } = require("../models");
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");
 
@@ -62,6 +62,33 @@ router.get("/products/:id", async (req, res) => {
     });
     res.send(data);
   } catch {
+    res.sendStatus(404);
+  }
+});
+
+//orden agregar al carrito
+
+router.post("/cart/add", async (req, res) => {
+  try {
+    const order = await Orders.create({ status: "cart" });
+    const product = await Products.findByPk(req.body.id);
+    order.setProducts(product);
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(404);
+  }
+});
+
+//orden eliminar del carrito
+
+router.post("/cart/delete", async (req, res) => {
+  try {
+    const product = await Products.findByPk(req.body.id, { include: Orders });
+    product.removeOrder(product.orders[0]);
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
     res.sendStatus(404);
   }
 });
