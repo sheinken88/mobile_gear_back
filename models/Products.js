@@ -8,16 +8,7 @@ Products.init(
       type: Sequelize.STRING,
       allowNull: false,
     },
-    /*
-    brand: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
-    category: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
-    */
+
     productImage: {
       type: Sequelize.STRING,
     },
