@@ -14,7 +14,7 @@ const {
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");
 
-router.post("/api/users/signup", (req, res) => {
+router.post("/users/signup", (req, res) => {
   Users.create(req.body)
     .then(() => res.sendStatus(200))
     .catch((err) => {
