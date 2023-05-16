@@ -34,7 +34,7 @@ router.post("/users/login", (req, res) => {
       user.validatePassword(req.body.password).then((isValid) => {
         if (!isValid) return res.sendStatus(401);
         else {
-          const token = generateToken({ id, email });
+          const token = generateToken({ id, userName, isAdmin, email });
           res.cookie("token", token);
           res.sendStatus(200);
         }
