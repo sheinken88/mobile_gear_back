@@ -22,14 +22,14 @@ router.post("/signup", (req, res) => {
 
 router.post("/login", (req, res) => {
   Users.findOne({
-    where: { username: req.body.username },
+    where: { email: req.body.email },
   }).then((user) => {
     if (!user) return res.sendStatus(401);
-    const { id, username, email } = user;
+    const { id, email } = user;
     user.validatePassword(req.body.password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
       else {
-        const token = generateToken({ id, username, email });
+        const token = generateToken({ id, email });
         res.cookie("token", token);
         res.sendStatus(200);
       }
@@ -69,6 +69,34 @@ router.get("/products/:id", async (req, res) => {
       include: [Brands, Categories],
     });
     res.send(data);
+  } catch {
+    res.sendStatus(404);
+  }
+});
+
+router.update("/products/:id", async (req, res) => {
+  try {
+    if (req.user.isAdmin) {
+      const data = await Products.update({
+        where: { id: Number(req.params.id) },
+      });
+      res.send(data);
+    }
+    res.sendStatus(200);
+  } catch {
+    res.sendStatus(404);
+  }
+});
+
+router.post("/products/add", async (req, res) => {
+  try {
+    if (req.user.isAdmin) {
+      const data = await Products.findOrCreate(req.body);
+      if (data[1]) {
+        res.send(data[0]);
+      }
+    }
+    res.sendStatus(200);
   } catch {
     res.sendStatus(404);
   }
