@@ -9,21 +9,9 @@ Users.init(
       type: Sequelize.BOOLEAN,
       defaultValue: false,
     },
-    firstName: {
+    username: {
       type: Sequelize.STRING,
       allowNull: false,
-    },
-    lastName: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    birthDate: {
-      type: Sequelize.DATE,
-      allowNull: false,
-    },
-    dni: {
-      type: Sequelize.INTEGER,
-      unique: true,
     },
     email: {
       type: Sequelize.STRING,
@@ -36,16 +24,9 @@ Users.init(
     password: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        len: [8, 24],
-      },
-    },
-    address: {
-      type: Sequelize.TEXT,
-    },
-
-    phoneNumber: {
-      type: Sequelize.INTEGER,
+      // validate: {
+      //   len: [8, 24],
+      // },
     },
   },
   {
