@@ -9,7 +9,7 @@ Users.init(
       type: Sequelize.BOOLEAN,
       defaultValue: false,
     },
-    username: {
+    userName: {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -27,6 +27,9 @@ Users.init(
       // validate: {
       //   len: [8, 24],
       // },
+    },
+    salt: {
+      type: Sequelize.STRING,
     },
   },
   {

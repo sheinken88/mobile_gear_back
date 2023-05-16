@@ -25,11 +25,8 @@ const seeder = async () => {
   for (let i = 0; i < 50; i++) {
     const user = await Users.create({
       isAdmin: false,
-      firstName: faker.person.firstName(),
-      lastName: faker.person.lastName(),
-      birthDate: faker.date.birthdate({ min: 18, max: 65, mode: "age" }),
+      userName: faker.person.firstName(),
       email: faker.internet.email(),
-      dni: faker.number.int({ min: 4000000, max: 50000000 }),
       password: faker.internet.password({ min: 8, max: 24 }),
     });
 
@@ -51,13 +48,10 @@ const seeder = async () => {
   }
 
   let admin = await Users.create({
-    isAdmin: false,
-    firstName: "Admin",
-    lastName: "Test",
-    birthDate: new Date(),
-    email: "admin@email.com",
-    dni: 1000000,
-    password: "12345678",
+    isAdmin: true,
+    userName: "admin",
+    email: "admin@mail.com",
+    password: "1234",
   });
 
   users.push(admin);
