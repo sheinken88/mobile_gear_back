@@ -46,8 +46,21 @@ const seeder = async () => {
     });
 
     users.push(user);
+
     products.push(product);
   }
+
+  let admin = await Users.create({
+    isAdmin: false,
+    firstName: "Admin",
+    lastName: "Test",
+    birthDate: new Date(),
+    email: "admin@email.com",
+    dni: 1000000,
+    password: "12345678",
+  });
+
+  users.push(admin);
 
   let orders = [];
 
@@ -65,24 +78,6 @@ const seeder = async () => {
     });
     orders.push(order);
   }
-  /*
-  let idxProducts = [5, 21, 13, 22, 22, 22, 44];
-
-  orders[25].setProducts(
-    products.filter((_, i) => {
-      return idxProducts.includes(i);
-    })
-  );
-  orders[26].setProducts(
-    products.filter((_, i) => {
-      return idxProducts.includes(i);
-    })
-  );
-  orders[27].setProducts(
-    products.filter((_, i) => {
-      return idxProducts.includes(i);
-    })
-  );*/
 };
 
 module.exports = seeder;
