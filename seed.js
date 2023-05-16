@@ -46,8 +46,21 @@ const seeder = async () => {
     });
 
     users.push(user);
+
     products.push(product);
   }
+
+  let admin = await Users.create({
+    isAdmin: false,
+    firstName: "Admin",
+    lastName: "Test",
+    birthDate: new Date(),
+    email: "admin@email.com",
+    dni: 1000000,
+    password: "12345678",
+  });
+
+  users.push(admin);
 
   let orders = [];
 
