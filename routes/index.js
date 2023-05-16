@@ -14,27 +14,36 @@ const {
 const validateUser = require("../middleware/auth");
 const { generateToken, validateToken } = require("../config/tokens");
 
-router.post("/signup", (req, res) => {
+router.post("/api/users/signup", (req, res) => {
   Users.create(req.body)
     .then(() => res.sendStatus(200))
-    .catch(() => res.sendStatus(404));
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(404);
+    });
 });
 
-router.post("/login", (req, res) => {
+router.post("/users/login", (req, res) => {
   Users.findOne({
     where: { email: req.body.email },
-  }).then((user) => {
-    if (!user) return res.sendStatus(401);
-    const { id, email } = user;
-    user.validatePassword(req.body.password).then((isValid) => {
-      if (!isValid) return res.sendStatus(401);
-      else {
-        const token = generateToken({ id, email });
-        res.cookie("token", token);
-        res.sendStatus(200);
-      }
+  })
+    .then((user) => {
+      console.log(user);
+      if (!user) return res.sendStatus(401);
+      const { id, email } = user;
+      user.validatePassword(req.body.password).then((isValid) => {
+        if (!isValid) return res.sendStatus(401);
+        else {
+          const token = generateToken({ id, email });
+          res.cookie("token", token);
+          res.sendStatus(200);
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(403);
     });
-  });
 });
 
 router.get("/secret", (req, res) => {
