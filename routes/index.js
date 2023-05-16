@@ -74,7 +74,7 @@ router.get("/products/:id", async (req, res) => {
   }
 });
 
-router.update("/products/:id", async (req, res) => {
+router.put("/products/:id", async (req, res) => {
   try {
     if (req.user.isAdmin) {
       const data = await Products.update({
