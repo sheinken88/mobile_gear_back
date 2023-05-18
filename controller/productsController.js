@@ -29,8 +29,9 @@ const editProduct = async (req, res) => {
         where: { id: Number(req.params.id) },
       });
       res.send(data);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
     }
-    res.sendStatus(200);
   } catch (err) {
     res.status(404).send(err);
   }
@@ -43,11 +44,34 @@ const addProduct = async (req, res) => {
       if (data[1]) {
         res.send(data[0]);
       }
+      res.sendStatus(200);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
     }
-    res.sendStatus(200);
   } catch (err) {
     res.status(404).send(err);
   }
 };
 
-module.exports = { listProducts, getProduct, addProduct, editProduct };
+const deleteProduct = async (req, res) => {
+  try {
+    if (req.user.is_admin) {
+      const data = await Products.destroy({
+        where: { id: Number(req.params.id) },
+      });
+      res.send(data).sendStatus(200);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+module.exports = {
+  listProducts,
+  getProduct,
+  addProduct,
+  editProduct,
+  deleteProduct,
+};
