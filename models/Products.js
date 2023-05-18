@@ -4,12 +4,12 @@ const db = require("../db");
 class Products extends Sequelize.Model {}
 Products.init(
   {
-    modelName: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
 
-    productImage: {
+    product_img: {
       type: Sequelize.STRING,
     },
 

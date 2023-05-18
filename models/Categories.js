@@ -4,7 +4,7 @@ const db = require("../db");
 class Categories extends Sequelize.Model {}
 Categories.init(
   {
-    categoryName: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },

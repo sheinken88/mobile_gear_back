@@ -1,35 +1,33 @@
 const { generateToken, validateToken } = require("../config/tokens");
 const { Users } = require("../models");
 
-const login = (req, res) => {
-  Users.findOne({
-    where: { email: req.body.email },
-  })
-    .then((user) => {
-      if (!user) return res.sendStatus(401);
-      const { id, email, isAdmin, userName } = user;
-      user.validatePassword(req.body.password).then((isValid) => {
-        if (!isValid) return res.sendStatus(401);
-        else {
-          const token = generateToken({ id, userName, isAdmin, email });
-          res.cookie("token", token);
-          res.sendStatus(200);
-        }
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(403);
+const login = async (req, res) => {
+  try {
+    const user = await Users.findOne({
+      where: { email: req.body.email },
     });
+    if (!user) return res.sendStatus(401);
+    const { id, email, is_admin, username } = user;
+    user.validatePassword(req.body.password).then((isValid) => {
+      if (!isValid) return res.sendStatus(401);
+      else {
+        const token = generateToken({ id, username, is_admin, email });
+        res.cookie("token", token);
+        res.sendStatus(200);
+      }
+    });
+  } catch (err) {
+    res.status(404).send(err);
+  }
 };
 
-const signup = (req, res) => {
-  Users.create(req.body)
-    .then(() => res.sendStatus(200))
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(404);
-    });
+const signup = async (req, res) => {
+  try {
+    await Users.create(req.body);
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 };
 
 const logout = (req, res) => {

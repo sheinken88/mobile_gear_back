@@ -7,8 +7,7 @@ const listProducts = async (req, res) => {
     const data = await Products.findAll(conditions);
     res.send(data);
   } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
+    res.status(404).send(err);
   }
 };
 
@@ -18,36 +17,36 @@ const getProduct = async (req, res) => {
       include: [Brands, Categories],
     });
     res.send(data);
-  } catch {
-    res.sendStatus(404);
+  } catch (err) {
+    res.status(404).send(err);
   }
 };
 
 const editProduct = async (req, res) => {
   try {
-    if (req.user.isAdmin) {
+    if (req.user.is_admin) {
       const data = await Products.update({
         where: { id: Number(req.params.id) },
       });
       res.send(data);
     }
     res.sendStatus(200);
-  } catch {
-    res.sendStatus(404);
+  } catch (err) {
+    res.status(404).send(err);
   }
 };
 
 const addProduct = async (req, res) => {
   try {
-    if (req.user.isAdmin) {
+    if (req.user.is_admin) {
       const data = await Products.findOrCreate(req.body);
       if (data[1]) {
         res.send(data[0]);
       }
     }
     res.sendStatus(200);
-  } catch {
-    res.sendStatus(404);
+  } catch (err) {
+    res.status(404).send(err);
   }
 };
 

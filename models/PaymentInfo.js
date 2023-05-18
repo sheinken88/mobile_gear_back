@@ -4,15 +4,15 @@ const db = require("../db");
 class PaymentInfo extends Sequelize.Model {}
 PaymentInfo.init(
   {
-    firstName: {
+    first_name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    lastName: {
+    last_name: {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    birthDate: {
+    birth_date: {
       type: Sequelize.DATE,
       allowNull: false,
     },
@@ -24,7 +24,7 @@ PaymentInfo.init(
       type: Sequelize.TEXT,
     },
 
-    phoneNumber: {
+    phone_number: {
       type: Sequelize.INTEGER,
     },
   },
