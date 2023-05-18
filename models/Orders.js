@@ -13,6 +13,10 @@ Orders.init(
       type: Sequelize.STRING,
       // allowNull: false,
     },
+    qty: {
+      type: Sequelize.INTEGER,
+      allowNull: true,
+    },
   },
   { sequelize: db, modelName: "orders" }
 );

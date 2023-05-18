@@ -12,18 +12,18 @@ const getConditions = (query) => {
   };
 
   if (modelName) {
-    conditions.where.modelName = { [Op.iLike]: `%${modelName}%` };
+    conditions.where.name = { [Op.iLike]: `%${modelName}%` };
   }
 
   if (brandName) {
     conditions.include[0].where = {
-      brandName: { [Op.iLike]: `%${brandName}%` },
+      name: { [Op.iLike]: `%${brandName}%` },
     };
   }
 
   if (categoryName) {
     conditions.include[1].where = {
-      categoryName: { [Op.iLike]: `%${categoryName}%` },
+      name: { [Op.iLike]: `%${categoryName}%` },
     };
   }
 

@@ -1,9 +1,17 @@
 const { Products, Orders, Ordersproducts } = require("../models");
 
 const addToCart = async (req, res) => {
+  const { id, qty } = req.body;
+
   try {
-    const order = await Orders.create({ status: "cart" });
-    const product = await Products.findByPk(req.body.id);
+    if (req.user) {
+    }
+    const order = await Orders.create({
+      status: "cart",
+      userId: req.user.id,
+      qty,
+    });
+    const product = await Products.findByPk(id);
     order.setProducts(product);
     res.sendStatus(200);
   } catch (err) {
