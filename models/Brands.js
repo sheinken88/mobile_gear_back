@@ -4,7 +4,7 @@ const db = require("../db");
 class Brands extends Sequelize.Model {}
 Brands.init(
   {
-    brandName: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
     },

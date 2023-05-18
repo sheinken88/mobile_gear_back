@@ -5,11 +5,11 @@ const bcrypt = require("bcrypt");
 class Users extends Sequelize.Model {}
 Users.init(
   {
-    isAdmin: {
+    is_admin: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
     },
-    userName: {
+    username: {
       type: Sequelize.STRING,
       allowNull: false,
     },

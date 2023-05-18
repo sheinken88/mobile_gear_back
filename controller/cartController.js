@@ -5,11 +5,9 @@ const addToCart = async (req, res) => {
     const order = await Orders.create({ status: "cart" });
     const product = await Products.findByPk(req.body.id);
     order.setProducts(product);
-    console.log(order, product);
     res.sendStatus(200);
   } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
+    res.status(404).send(err);
   }
 };
 
@@ -23,15 +21,14 @@ const listCart = async (req, res) => {
       const product = await Products.findByPk(orderproduct.productId);
 
       if (products[product.modelName]) {
-        products[product.modelName].qty++;
+        products[product.name].qty++;
       } else {
-        products[product.modelName] = { qty: 1, data: product };
+        products[product.name] = { qty: 1, data: product };
       }
     }
     res.send(products);
   } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
+    res.status(404).send(err);
   }
 };
 
@@ -41,8 +38,7 @@ const deleteFromCart = async (req, res) => {
     product.removeOrder(product.orders[0]);
     res.sendStatus(200);
   } catch (err) {
-    console.log(err);
-    res.sendStatus(404);
+    res.status(404).send(err);
   }
 };
 

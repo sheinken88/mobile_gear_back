@@ -5,7 +5,7 @@ class Orders extends Sequelize.Model {}
 
 Orders.init(
   {
-    totalValue: {
+    total_value: {
       type: Sequelize.FLOAT,
       // allowNull: false,
     },

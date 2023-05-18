@@ -2,18 +2,16 @@ const db = require("./db");
 const { Users, Products, Categories, Brands, Orders } = require("./models");
 const { faker } = require("@faker-js/faker");
 
-// npm i @faker-js/faker
-
 const seeder = async () => {
   let brands = [];
   let categories = [];
 
   for (let i = 0; i < 10; i++) {
     const brand = await Brands.create({
-      brandName: faker.company.name(),
+      name: faker.company.name(),
     });
     const category = await Categories.create({
-      categoryName: faker.commerce.product(),
+      name: faker.commerce.product(),
     });
     categories.push(category);
     brands.push(brand);
@@ -24,15 +22,15 @@ const seeder = async () => {
 
   for (let i = 0; i < 50; i++) {
     const user = await Users.create({
-      isAdmin: false,
-      userName: faker.person.firstName(),
+      is_admin: false,
+      username: faker.person.firstName(),
       email: faker.internet.email(),
       password: faker.internet.password({ min: 8, max: 24 }),
     });
 
     const product = await Products.create({
-      modelName: faker.commerce.productName(),
-      productImage: faker.image.url(),
+      name: faker.commerce.productName(),
+      product_img: faker.image.url(),
       description: faker.commerce.productDescription(),
       features: faker.commerce.productAdjective(),
       price: faker.commerce.price(),
@@ -48,8 +46,8 @@ const seeder = async () => {
   }
 
   let admin = await Users.create({
-    isAdmin: true,
-    userName: "admin",
+    is_admin: true,
+    username: "admin",
     email: "admin@mail.com",
     password: "1234",
   });
