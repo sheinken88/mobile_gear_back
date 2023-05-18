@@ -3,10 +3,12 @@ const { Products, Brands, Categories } = require("../models");
 
 const listProducts = async (req, res) => {
   try {
+    console.log(1, req.query);
     const conditions = getConditions(req.query);
     const data = await Products.findAll(conditions);
     res.send(data);
   } catch (err) {
+    console.log(2, err);
     res.status(404).send(err);
   }
 };
