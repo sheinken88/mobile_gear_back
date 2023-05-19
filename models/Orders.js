@@ -5,12 +5,11 @@ class Orders extends Sequelize.Model {}
 
 Orders.init(
   {
+    total_value: {
+      type: Sequelize.FLOAT,
+    },
     status: {
       type: Sequelize.STRING,
-    },
-    qty: {
-      type: Sequelize.INTEGER,
-      allowNull: true,
     },
   },
   { sequelize: db, modelName: "orders" }

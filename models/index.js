@@ -2,41 +2,33 @@ const Users = require("./Users");
 const Products = require("./Products");
 const Brands = require("./Brands");
 const Categories = require("./Categories");
-const Orders = require("./Orders");
+const ProductOrders = require("./ProductOrders");
 const Payments = require("./Payments");
 const Deliveries = require("./Deliveries");
-const Checkouts = require("./Checkouts");
-const PaymentInfo = require("./Checkouts");
+const Orders = require("./Orders");
+const PaymentInfo = require("./PaymentInfo");
 
 Products.belongsTo(Brands);
 Products.belongsTo(Categories);
 
 Users.belongsTo(PaymentInfo);
-Users.belongsTo(Checkouts);
+Users.belongsTo(Orders);
 
-Orders.belongsTo(Products);
-Orders.belongsTo(Checkouts);
+ProductOrders.belongsTo(Products);
+ProductOrders.belongsTo(Users);
+ProductOrders.belongsTo(Orders);
 
-Checkouts.belongsTo(Payments);
-Checkouts.belongsTo(Deliveries);
-
-/*
-Orders.belongsToMany(Products, {
-  through: "ordersproducts",
-});
-Products.belongsToMany(Orders, {
-  through: "ordersproducts",
-});
-*/
+Orders.belongsTo(Payments);
+Orders.belongsTo(Deliveries);
 
 module.exports = {
   Users,
   Products,
   Brands,
   Categories,
-  Orders,
+  ProductOrders,
   Deliveries,
   Payments,
-  Checkouts,
+  Orders,
   PaymentInfo,
 };

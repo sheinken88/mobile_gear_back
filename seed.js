@@ -1,10 +1,8 @@
-const db = require("./db");
 const {
   Users,
   Products,
   Categories,
   Brands,
-  Orders,
   Payments,
   Deliveries,
 } = require("./models");
