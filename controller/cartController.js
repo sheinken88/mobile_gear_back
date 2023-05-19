@@ -4,8 +4,6 @@ const addToCart = async (req, res) => {
   const { id, qty } = req.body;
 
   try {
-    if (req.user) {
-    }
     const order = await Orders.create({
       status: "cart",
       userId: req.user.id,

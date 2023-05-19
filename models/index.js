@@ -5,21 +5,29 @@ const Categories = require("./Categories");
 const Orders = require("./Orders");
 const Payments = require("./Payments");
 const Deliveries = require("./Deliveries");
-const Ordersproducts = require("./Ordersproducts");
+const Checkouts = require("./Checkouts");
+const PaymentInfo = require("./Checkouts");
 
 Products.belongsTo(Brands);
 Products.belongsTo(Categories);
 
-Orders.belongsTo(Users);
-Orders.belongsTo(Payments);
-Orders.belongsTo(Deliveries);
+Users.belongsTo(PaymentInfo);
+Users.belongsTo(Checkouts);
 
+Orders.belongsTo(Products);
+Orders.belongsTo(Checkouts);
+
+Checkouts.belongsTo(Payments);
+Checkouts.belongsTo(Deliveries);
+
+/*
 Orders.belongsToMany(Products, {
   through: "ordersproducts",
 });
 Products.belongsToMany(Orders, {
   through: "ordersproducts",
 });
+*/
 
 module.exports = {
   Users,
@@ -29,5 +37,6 @@ module.exports = {
   Orders,
   Deliveries,
   Payments,
-  Ordersproducts,
+  Checkouts,
+  PaymentInfo,
 };

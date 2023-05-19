@@ -7,11 +7,17 @@ const login = async (req, res) => {
       where: { email: req.body.email },
     });
     if (!user) return res.sendStatus(401);
-    const { id, email, is_admin, username } = user;
+    const { id, email, is_admin, username, checkoutId } = user;
     user.validatePassword(req.body.password).then((isValid) => {
       if (!isValid) return res.sendStatus(401);
       else {
-        const token = generateToken({ id, username, is_admin, email });
+        const token = generateToken({
+          id,
+          username,
+          is_admin,
+          email,
+          checkoutId,
+        });
         res.cookie("token", token);
         res.sendStatus(200);
       }
