@@ -1,12 +1,10 @@
-const { Products, Orders, Ordersproducts } = require("../models");
+const { ProductOrders, Products } = require("../models");
 
 const addToCart = async (req, res) => {
   const { id, qty } = req.body;
 
   try {
-    if (req.user) {
-    }
-    const order = await Orders.create({
+    const order = await ProductOrders.create({
       status: "cart",
       userId: req.user.id,
       qty,
@@ -42,7 +40,9 @@ const listCart = async (req, res) => {
 
 const deleteFromCart = async (req, res) => {
   try {
-    const product = await Products.findByPk(req.body.id, { include: Orders });
+    const product = await Products.findByPk(req.body.id, {
+      include: ProductOrders,
+    });
     product.removeOrder(product.orders[0]);
     res.sendStatus(200);
   } catch (err) {
