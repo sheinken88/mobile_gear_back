@@ -15,7 +15,6 @@ Products.init(
 
     description: {
       type: Sequelize.TEXT,
-      allowNull: false,
     },
 
     features: {
