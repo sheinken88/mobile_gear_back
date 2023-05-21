@@ -8,7 +8,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 13,
-    "discount": "39,9998",
+    "discount": 39,
     "description": ""
   },
   {
@@ -20,7 +20,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 18,
-    "discount": "111,9998",
+    "discount": 8,
     "description": ""
   },
   {
@@ -32,7 +32,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 13,
-    "discount": "81,9998",
+    "discount": 0,
     "description": ""
   },
   {
@@ -44,7 +44,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 19,
-    "discount": "101,9998",
+    "discount": 8,
     "description": ""
   },
   {
@@ -56,7 +56,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 14,
-    "discount": "139,9998",
+    "discount": 8,
     "description": ""
   },
   {
@@ -68,7 +68,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 14,
-    "discount": "79,9998",
+    "discount": 0,
     "description": ""
   },
   {
@@ -80,7 +80,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 1,
-    "discount": "75,9998",
+    "discount": 34,
     "description": ""
   },
   {
@@ -92,7 +92,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 6,
-    "discount": "87,9998",
+    "discount": 0,
     "description": ""
   },
   {
@@ -104,7 +104,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 19,
-    "discount": "73,9998",
+    "discount": 37,
     "description": ""
   },
   {
@@ -116,7 +116,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 17,
-    "discount": "69,9998",
+    "discount": 0,
     "description": ""
   },
   {
@@ -128,7 +128,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 5,
-    "discount": "5399,8",
+    "discount": 53,
     "description": ""
   },
   {
@@ -140,7 +140,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 20,
-    "discount": "8099,8",
+    "discount": 47,
     "description": ""
   },
   {
@@ -152,7 +152,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 0,
-    "discount": "1299,8",
+    "discount": 12,
     "description": ""
   },
   {
@@ -164,7 +164,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 0,
-    "discount": "1299,8",
+    "discount": 12,
     "description": ""
   },
   {
@@ -176,7 +176,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 18,
-    "discount": "1799,8",
+    "discount": 17,
     "description": ""
   },
   {
@@ -188,7 +188,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 9,
-    "discount": "1399,8",
+    "discount": 13,
     "description": ""
   },
   {
@@ -200,7 +200,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 11,
-    "discount": "2699,8",
+    "discount": 26,
     "description": ""
   },
   {
@@ -212,7 +212,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 5,
-    "discount": "1799,8",
+    "discount": 17,
     "description": ""
   },
   {
@@ -224,7 +224,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 16,
-    "discount": "15799,8",
+    "discount": 15,
     "description": ""
   },
   {
@@ -236,7 +236,7 @@
     "brand": "samsung",
     "features": "",
     "stock": 18,
-    "discount": "10599,8",
+    "discount": 0,
     "description": ""
   }
 ]
