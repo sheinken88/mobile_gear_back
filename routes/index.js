@@ -4,12 +4,12 @@ const users = require("./users");
 const products = require("./products");
 const admin = require("./admin");
 const cart = require("./cart");
-const checkout = require("./checkout");
+const orders = require("./orders");
 
 router.use("/users", users);
 router.use("/products", products);
 router.use("/cart", cart);
 router.use("/admin", admin);
-router.use("/checkout", checkout);
+router.use("/orders", orders);
 
 module.exports = router;

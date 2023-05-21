@@ -1,5 +1,6 @@
 const { getConditions } = require("./utils");
 const { Products, Brands, Categories } = require("../models");
+const { Op } = require("sequelize");
 
 const listProducts = async (req, res) => {
   try {
@@ -7,7 +8,21 @@ const listProducts = async (req, res) => {
     const data = await Products.findAll(conditions);
     res.send(data);
   } catch (err) {
-    console.log(2, err);
+    res.status(404).send(err);
+  }
+};
+
+const discountedProducts = async (req, res) => {
+  try {
+    const data = await Products.findAll({
+      where: {
+        discount: { [Op.gt]: 15 },
+      },
+      include: [Categories, Brands],
+    });
+    res.send(data);
+  } catch (err) {
+    console.log(123, err);
     res.status(404).send(err);
   }
 };
@@ -75,4 +90,5 @@ module.exports = {
   addProduct,
   editProduct,
   deleteProduct,
+  discountedProducts,
 };

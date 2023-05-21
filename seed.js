@@ -1,10 +1,10 @@
 const { Users, Products, Categories, Brands } = require("./models");
+const products = require("./products.json");
 
 const seeder = async () => {
-  const products = require("./products.json");
-
   for (let i = 0; i < products.length; i++) {
-    let { name, price, type, brand, product_img, stock } = products[i];
+    let { name, price, type, brand, product_img, stock, discount } =
+      products[i];
     let _brand = await Brands.findOrCreate({ where: { name: brand } });
     let category = await Categories.findOrCreate({
       where: { name: type },
@@ -17,6 +17,7 @@ const seeder = async () => {
       brandId: _brand[0].id,
       product_img,
       stock,
+      discount,
     };
     await Products.create(product);
   }
@@ -31,7 +32,7 @@ const seeder = async () => {
   await Users.create({
     is_admin: false,
     username: "user",
-    email: "user@mail.com",
+    email: "mobilegeartest@protonmail.com",
     password: "1234",
   });
 };

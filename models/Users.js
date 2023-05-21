@@ -21,6 +21,9 @@ Users.init(
         isEmail: true,
       },
     },
+    checkoutId: {
+      type: Sequelize.INTEGER,
+    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,
