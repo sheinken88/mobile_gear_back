@@ -238,5 +238,151 @@
     "stock": 18,
     "discount": 0,
     "description": ""
+  },
+
+  {
+    "brand": "apple",
+    "name": "Watch Edition Series 2 42mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch2-edition-42mm.jpg",
+    "price": 799999,
+    "type": "accesorios",
+    "stock": 23,
+    "discount": 23
+  },
+  {
+    "brand": "apple",
+    "name": "Watch Edition Series 2 38mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch2-s2-edition-38mm.jpg",
+    "price": 749999,
+    "type": "accesorios",
+    "stock": 31,
+    "discount": 0
+  },
+  {
+    "brand": "apple",
+    "name": "Watch Series 2 42mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch2-s2-42mm.jpg",
+    "price": 349999,
+    "type": "accesorios",
+    "stock": 25,
+    "discount": 10
+  },
+  {
+    "brand": "apple",
+    "name": "Watch Series 2 38mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch2-s2-38mm.jpg",
+    "price": 349999,
+    "type": "accesorios",
+    "stock": 18,
+    "discount": 19
+  },
+  {
+    "brand": "apple",
+    "name": "Watch Series 2 Sport 42mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch2-s2-sport-42mm.jpg",
+    "price": 249999,
+    "type": "accesorios",
+    "stock": 26,
+    "discount": 27
+  },
+  {
+    "brand": "apple",
+    "name": "Watch Series 1 Sport 42mm",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-watch1-sport-42mm.jpg",
+    "price": 199999,
+    "type": "accesorios",
+    "stock": 11,
+    "discount": 0
+  },
+  {
+    "brand": "apple",
+    "name": "iPhone 7 Plus",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-iphone-7-plus-r2.jpg",
+    "price": 499999,
+    "type": "smartphone",
+    "stock": 29,
+    "discount": 8
+  },
+  {
+    "brand": "apple",
+    "name": "iPhone 7",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-iphone-7r4.jpg",
+    "price": 399999,
+    "type": "smartphone",
+    "stock": 18,
+    "discount": 15
+  },
+  {
+    "brand": "apple",
+    "name": "iPhone SE",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-iphone-5se-ofic.jpg",
+    "price": 249999,
+    "type": "smartphone",
+    "stock": 5,
+    "discount": 19
+  },
+  {
+    "brand": "apple",
+    "name": "iPhone 6s Plus",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-iphone-6s-plus.jpg",
+    "price": 399999,
+    "type": "smartphone",
+    "stock": 29,
+    "discount": 22
+  },
+  {
+    "brand": "apple",
+    "name": "iPhone 6s",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-iphone-6s1.jpg",
+    "price": 349999,
+    "type": "smartphone",
+    "stock": 22,
+    "discount": 9
+  },
+  {
+    "brand": "apple",
+    "name": "iPad Wi-Fi + 3G",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-ipad-original.jpg",
+    "price": 249999,
+    "type": "tablets",
+    "stock": 18,
+    "discount": 24
+  },
+  {
+    "brand": "apple",
+    "name": "iPad Wi-Fi",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/apple-ipad-original.jpg",
+    "price": 179999,
+    "type": "tablets",
+    "stock": 12,
+    "discount": 23
+  },
+
+  {
+    "price": 149999,
+    "brand": "samsung",
+    "name": "Galaxy Tab S 8.4",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-8.4.jpg",
+    "type": "tablets",
+    "stock": 24,
+    "discount": 8
+  },
+  {
+    "price": 249999,
+    "brand": "samsung",
+    "name": "Galaxy Tab S 10.5 LTE",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-105.jpg",
+    "type": "tablets",
+    "stock": 17,
+    "discount": 0
+  },
+  {
+    "price": 199999,
+    "brand": "samsung",
+    "name": "Galaxy Tab S 10.5",
+    "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-105.jpg",
+    "type": "tablets",
+    "stock": 4,
+    "discount": 16
   }
 ]
