@@ -46,7 +46,7 @@ const editProduct = async (req, res) => {
       });
       res.send(data);
     } else {
-      res.status(403).json({ mensaje: "Acceso denegado" });
+      res.status(403).json({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -59,10 +59,11 @@ const addProduct = async (req, res) => {
       const data = await Products.findOrCreate(req.body);
       if (data[1]) {
         res.send(data[0]);
+      } else {
+        res.status(409).send({ message: "Dato existente" });
       }
-      res.sendStatus(200);
     } else {
-      res.status(403).json({ mensaje: "Acceso denegado" });
+      res.status(403).json({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -77,7 +78,24 @@ const deleteProduct = async (req, res) => {
       });
       res.send(data).sendStatus(200);
     } else {
-      res.status(403).json({ mensaje: "Acceso denegado" });
+      res.status(403).json({ message: "Acceso denegado" });
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+const addCategory = async (req, res) => {
+  try {
+    if (req.user.is_admin) {
+      const data = await Categories.findOrCreate(req.body);
+      if (data[1]) {
+        res.send(data[0]);
+      } else {
+        res.status(409).send({ message: "Dato existente" });
+      }
+    } else {
+      res.status(403).json({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -91,4 +109,5 @@ module.exports = {
   editProduct,
   deleteProduct,
   discountedProducts,
+  addCategory,
 };
