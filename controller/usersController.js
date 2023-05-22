@@ -1,5 +1,7 @@
 const { generateToken, validateToken } = require("../config/tokens");
 const { Users } = require("../models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 const login = async (req, res) => {
   try {
@@ -51,4 +53,63 @@ const me = (req, res) => {
   res.send(req.user);
 };
 
-module.exports = { login, signup, logout, secret, me };
+const listUsers = async (req, res) => {
+  try {
+    if (req.user.is_admin) {
+      const users = await Users.findAll({
+        where: {
+          id: {
+            [Op.ne]: req.user.id,
+          },
+        },
+        attributes: { exclude: ["password", "salt"] },
+      });
+      res.send(users);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+const switchPrivileges = async (req, res) => {
+  try {
+    if (req.user.is_admin && Number(req.params.id) != req.user.id) {
+      const user = await Users.findByPk(Number(req.params.id));
+      await Users.update(
+        { is_admin: !user.is_admin },
+        { where: { id: user.id } }
+      );
+      res.sendStatus(200);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+const removeUser = async (req, res) => {
+  try {
+    if (req.user.is_admin) {
+      await Users.destroy({ where: { id: Number(req.params.id) } });
+      res.sendStatus(200);
+    } else {
+      res.status(403).json({ mensaje: "Acceso denegado" });
+    }
+  } catch (err) {
+    res.status(404).send(err);
+  }
+};
+
+module.exports = {
+  login,
+  signup,
+  logout,
+  secret,
+  me,
+  listUsers,
+  switchPrivileges,
+  removeUser,
+};
