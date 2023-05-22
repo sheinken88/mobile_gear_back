@@ -1,15 +1,21 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const domain = process.env.EMAIL_USER.split("@")[1];
-const service = domain.split(".")[0].toLowerCase();
+let options = {};
 
-const transporter = nodemailer.createTransport({
-  service,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+try {
+  const domain = process.env.EMAIL_USER.split("@")[1];
+  const service = domain.split(".")[0].toLowerCase();
+
+  options = {
+    service,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  };
+} catch {}
+
+const transporter = nodemailer.createTransport(options);
 
 module.exports = transporter;
