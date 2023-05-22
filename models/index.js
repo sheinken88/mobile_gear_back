@@ -20,8 +20,8 @@ ProductOrders.belongsTo(Orders);
 Orders.belongsTo(Payments);
 Orders.belongsTo(Deliverys);
 
-Users.belongsToMany(Orders, { through: "OrderHistory" });
-Orders.belongsToMany(Users, { through: "OrderHistory" });
+Users.belongsToMany(Orders, { through: "orderhistory" });
+Orders.belongsToMany(Users, { through: "orderhistory" });
 
 module.exports = {
   Users,

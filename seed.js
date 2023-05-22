@@ -1,4 +1,12 @@
-const { Users, Products, Categories, Brands } = require("./models");
+const {
+  Users,
+  Products,
+  Categories,
+  Brands,
+  Orders,
+  ProductOrders,
+  Deliverys,
+} = require("./models");
 const products = require("./products.json");
 
 const seeder = async () => {
@@ -25,7 +33,7 @@ const seeder = async () => {
   await Users.create({
     is_admin: true,
     username: "admin",
-    email: "admin@mail.com",
+    email: "mobilegearadmin@protonmail.com",
     password: "1234",
   });
 
@@ -34,6 +42,44 @@ const seeder = async () => {
     username: "user",
     email: "mobilegeartest@protonmail.com",
     password: "1234",
+  });
+
+  await Deliverys.create({
+    type: "envio a domicilio",
+    value: 1799,
+  });
+  await Deliverys.create({
+    type: "retirar por correo",
+    value: 1499,
+  });
+
+  await Orders.create({
+    status: "purchased",
+    deliveryId: 1,
+  });
+  await Orders.create({
+    status: "purchased",
+    deliveryId: 2,
+  });
+
+  await ProductOrders.create({
+    orderId: 1,
+    productId: 1,
+    userId: 2,
+    qty: 2,
+  });
+  await ProductOrders.create({
+    orderId: 1,
+    productId: 2,
+    userId: 2,
+    qty: 3,
+  });
+
+  await ProductOrders.create({
+    orderId: 2,
+    productId: 4,
+    userId: 1,
+    qty: 1,
   });
 };
 

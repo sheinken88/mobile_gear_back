@@ -7,7 +7,6 @@ ProductOrders.init(
   {
     qty: {
       type: Sequelize.INTEGER,
-      allowNull: true,
     },
   },
   { sequelize: db, modelName: "productorders" }
