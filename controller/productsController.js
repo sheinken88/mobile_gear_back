@@ -45,7 +45,7 @@ const editProduct = async (req, res) => {
       });
       res.sendStatus(200);
     } else {
-      res.status(403).json({ message: "Acceso denegado" });
+      res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -62,7 +62,7 @@ const addProduct = async (req, res) => {
         res.status(409).send({ message: "Dato existente" });
       }
     } else {
-      res.status(403).json({ message: "Acceso denegado" });
+      res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -76,9 +76,9 @@ const deleteProduct = async (req, res) => {
         where: { id: Number(req.params.id) },
       });
 
-      res.send(data).sendStatus(200);
+      res.send(data);
     } else {
-      res.status(403).json({ message: "Acceso denegado" });
+      res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);
@@ -95,7 +95,7 @@ const addCategory = async (req, res) => {
         res.status(409).send({ message: "Dato existente" });
       }
     } else {
-      res.status(403).json({ message: "Acceso denegado" });
+      res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
     res.status(404).send(err);

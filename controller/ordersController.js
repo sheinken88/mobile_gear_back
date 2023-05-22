@@ -55,7 +55,7 @@ const confirmPurchase = async (req, res) => {
       };
 
       await transporter.sendMail(mailOptions);
-      res.sendStatus(200);
+      res.sendStatus(204);
     } else {
       res.sendStatus(401);
     }
@@ -73,19 +73,21 @@ const addToCheckout = async (req, res) => {
         status: "checkout",
         deliveryId: delivery.id,
       });
+      order.setUsers(user);
 
       const { data } = req.body;
       for (let i = 0; i < data.length; i++) {
         await ProductOrders.create({
           orderId: order.id,
           productId: data[i].id,
+          userId: user.id,
           qty: data[i].quantity,
         });
       }
 
       await Users.update({ checkoutId: order.id }, { where: { id: user.id } });
     }
-    res.sendStatus(200);
+    res.status(201).send({ message: "Orden agregada" });
   } catch (err) {
     res.status(404).send(err);
   }
@@ -142,9 +144,25 @@ const purchaseHistory = async (req, res) => {
   }
 };
 
+const listAllOrders = async (req, res) => {
+  if (req.user.is_admin) {
+    const productOrders = await ProductOrders.findAll({
+      include: [
+        { model: Users, attributes: { exclude: ["password", "salt"] } },
+        Products,
+        Orders,
+      ],
+    });
+    res.send(productOrders);
+  } else {
+    res.status(403).send({ message: "Acceso denegado" });
+  }
+};
+
 module.exports = {
   addToCheckout,
   listCheckout,
   confirmPurchase,
   purchaseHistory,
+  listAllOrders,
 };
