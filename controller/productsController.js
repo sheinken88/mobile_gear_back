@@ -22,7 +22,6 @@ const discountedProducts = async (req, res) => {
     });
     res.send(data);
   } catch (err) {
-    console.log(123, err);
     res.status(404).send(err);
   }
 };
@@ -99,7 +98,6 @@ const addCategory = async (req, res) => {
       res.status(403).json({ message: "Acceso denegado" });
     }
   } catch (err) {
-    console.log("ERROR", err);
     res.status(404).send(err);
   }
 };

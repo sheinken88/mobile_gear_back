@@ -6,9 +6,8 @@ const {
   Deliverys,
 } = require("../models");
 
-//require("dotenv").config();
-
-//const transporter = require("../mailTransporter");
+require("dotenv").config();
+const transporter = require("../mailTransporter");
 
 const confirmPurchase = async (req, res) => {
   try {
@@ -61,7 +60,6 @@ const confirmPurchase = async (req, res) => {
       res.sendStatus(401);
     }
   } catch (err) {
-    console.log(err);
     res.status(500).send(err);
   }
 };
