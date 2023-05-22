@@ -6,9 +6,9 @@ const {
   Deliverys,
 } = require("../models");
 
-require("dotenv").config();
+//require("dotenv").config();
 
-const transporter = require("../mailTransporter");
+//const transporter = require("../mailTransporter");
 
 const confirmPurchase = async (req, res) => {
   try {
