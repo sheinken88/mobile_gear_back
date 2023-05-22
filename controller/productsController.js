@@ -41,10 +41,10 @@ const getProduct = async (req, res) => {
 const editProduct = async (req, res) => {
   try {
     if (req.user.is_admin) {
-      const data = await Products.update({
+      const data = await Products.update(req.body, {
         where: { id: Number(req.params.id) },
       });
-      res.send(data);
+      res.sendStatus(200);
     } else {
       res.status(403).json({ mensaje: "Acceso denegado" });
     }
@@ -75,11 +75,13 @@ const deleteProduct = async (req, res) => {
       const data = await Products.destroy({
         where: { id: Number(req.params.id) },
       });
+
       res.send(data).sendStatus(200);
     } else {
       res.status(403).json({ mensaje: "Acceso denegado" });
     }
   } catch (err) {
+    console.log("ERROR", err);
     res.status(404).send(err);
   }
 };
