@@ -11,8 +11,6 @@ router.post("/products/", validateUser, productsController.addProduct);
 router.put("/products/:id", validateUser, productsController.editProduct);
 router.delete("/products/:id", validateUser, productsController.deleteProduct);
 
-router.post("/categories/", validateUser, productsController.addCategory);
-
 router.get("/orders", validateUser, ordersController.listAllOrders);
 
 router.get("/users", validateUser, usersController.listUsers);
