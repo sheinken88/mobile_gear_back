@@ -1,7 +1,5 @@
 const { generateToken, validateToken } = require("../config/tokens");
 const { Users } = require("../models");
-const Sequelize = require("sequelize");
-const Op = Sequelize.Op;
 
 const login = async (req, res) => {
   try {
@@ -57,11 +55,6 @@ const listUsers = async (req, res) => {
   try {
     if (req.user.is_admin) {
       const users = await Users.findAll({
-        where: {
-          id: {
-            [Op.ne]: req.user.id,
-          },
-        },
         attributes: { exclude: ["password", "salt"] },
       });
       res.send(users);
