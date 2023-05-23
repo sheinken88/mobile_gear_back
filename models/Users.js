@@ -27,9 +27,6 @@ Users.init(
     password: {
       type: Sequelize.STRING,
       allowNull: false,
-      // validate: {
-      //   len: [8, 24],
-      // },
     },
     salt: {
       type: Sequelize.STRING,

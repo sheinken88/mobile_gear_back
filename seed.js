@@ -10,6 +10,8 @@ const {
 const products = require("./products.json");
 
 const seeder = async () => {
+  await Categories.create({ name: "default" });
+
   for (let i = 0; i < products.length; i++) {
     let { name, price, type, brand, product_img, stock, discount } =
       products[i];

@@ -4,8 +4,12 @@ const { Op } = require("sequelize");
 
 const listProducts = async (req, res) => {
   try {
-    const conditions = getConditions(req.query);
-    const data = await Products.findAll(conditions);
+    if (req.query.modelName == "") {
+      data = await Products.findAll();
+    } else {
+      const conditions = getConditions(req.query);
+      data = await Products.findAll(conditions);
+    }
     res.send(data);
   } catch (err) {
     res.status(404).send(err);
@@ -55,12 +59,8 @@ const editProduct = async (req, res) => {
 const addProduct = async (req, res) => {
   try {
     if (req.user.is_admin) {
-      const data = await Products.findOrCreate(req.body);
-      if (data[1]) {
-        res.send(data[0]);
-      } else {
-        res.status(409).send({ message: "Dato existente" });
-      }
+      const data = await Products.create(req.body);
+      res.send(data);
     } else {
       res.status(403).send({ message: "Acceso denegado" });
     }
@@ -72,28 +72,10 @@ const addProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   try {
     if (req.user.is_admin) {
-      const data = await Products.destroy({
+      await Products.destroy({
         where: { id: Number(req.params.id) },
       });
-
-      res.send(data);
-    } else {
-      res.status(403).send({ message: "Acceso denegado" });
-    }
-  } catch (err) {
-    res.status(404).send(err);
-  }
-};
-
-const addCategory = async (req, res) => {
-  try {
-    if (req.user.is_admin) {
-      const data = await Categories.findOrCreate(req.body);
-      if (data[1]) {
-        res.send(data[0]);
-      } else {
-        res.status(409).send({ message: "Dato existente" });
-      }
+      res.sendStatus(200);
     } else {
       res.status(403).send({ message: "Acceso denegado" });
     }
@@ -109,5 +91,4 @@ module.exports = {
   editProduct,
   deleteProduct,
   discountedProducts,
-  addCategory,
 };
