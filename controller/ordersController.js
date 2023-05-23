@@ -118,24 +118,11 @@ const purchaseHistory = async (req, res) => {
   try {
     const user = await Users.findByPk(req.user.id, { include: Orders });
     if (user) {
-      let purchaseHistory = [];
-      const orders = user.orders.filter((order) => order.status == "purchased");
-
-      for (let i = 0; i < orders.length; i++) {
-        const orderId = orders[i].id;
-        const productorders = await ProductOrders.findAll({
-          where: { orderId },
-          include: [Products],
-        });
-
-        const total = productorders.reduce(
-          (acc, item) => acc + item.product.price * item.qty,
-          0
-        );
-        purchaseHistory.push({ data: productorders, total });
-      }
-
-      res.send({ data: purchaseHistory });
+      const orders = await ProductOrders.findAll({
+        where: { userId: user.id },
+        include: [Products, Orders],
+      });
+      res.send(orders);
     } else {
       res.sendStatus(401);
     }
