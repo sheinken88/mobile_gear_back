@@ -37,6 +37,9 @@ e-commerce de dispositivos moviles y accesiorios.
 -Products: contiene la información de los productos disponibles
 -Users: almacena los datos de los usuarios registrados.
 
+![image](https://github.com/sheinken88/mobile_gear_back/assets/108558268/82cda780-659b-4158-8234-822087fb68aa)
+
+
 ### Rutas
 
 -admin: permite realizar operaciones de administración, como la gestión de productos y usuarios.
