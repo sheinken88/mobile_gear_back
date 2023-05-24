@@ -9,7 +9,7 @@
     "features": "",
     "stock": 13,
     "discount": 39,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S23 Ultra",
@@ -21,7 +21,7 @@
     "features": "",
     "stock": 18,
     "discount": 8,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S23",
@@ -33,7 +33,7 @@
     "features": "",
     "stock": 13,
     "discount": 0,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S23+",
@@ -45,7 +45,7 @@
     "features": "",
     "stock": 19,
     "discount": 8,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy Z Fold4",
@@ -57,7 +57,7 @@
     "features": "",
     "stock": 14,
     "discount": 8,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy Z Flip4",
@@ -69,7 +69,7 @@
     "features": "",
     "stock": 14,
     "discount": 0,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy Z Fold3 5G",
@@ -81,7 +81,7 @@
     "features": "",
     "stock": 1,
     "discount": 34,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S22 Ultra",
@@ -93,7 +93,7 @@
     "features": "",
     "stock": 6,
     "discount": 0,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S22+",
@@ -105,7 +105,7 @@
     "features": "",
     "stock": 19,
     "discount": 37,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy S22",
@@ -117,7 +117,7 @@
     "features": "",
     "stock": 17,
     "discount": 0,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Super Fast Wireless Charger",
@@ -129,7 +129,7 @@
     "features": "",
     "stock": 5,
     "discount": 53,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Cargador Inalámbrico Rápido 15W",
@@ -141,7 +141,7 @@
     "features": "",
     "stock": 20,
     "discount": 47,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Wireless Charger Convertible",
@@ -153,7 +153,7 @@
     "features": "",
     "stock": 0,
     "discount": 12,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Adaptador de viaje - Sin Cable (15W)",
@@ -165,7 +165,7 @@
     "features": "",
     "stock": 0,
     "discount": 12,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy A34 5G Clear Case",
@@ -177,7 +177,7 @@
     "features": "",
     "stock": 18,
     "discount": 17,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Card Slot Case para Galaxy A34 5G",
@@ -189,7 +189,7 @@
     "features": "",
     "stock": 9,
     "discount": 13,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Silicone Case para Galaxy A54 5G",
@@ -201,7 +201,7 @@
     "features": "",
     "stock": 11,
     "discount": 26,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Clear Case para Galaxy A54 5G",
@@ -213,7 +213,7 @@
     "features": "",
     "stock": 5,
     "discount": 17,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy Buds2 Pro",
@@ -225,7 +225,7 @@
     "features": "",
     "stock": 16,
     "discount": 15,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "name": "Galaxy Buds2",
@@ -237,7 +237,7 @@
     "features": "",
     "stock": 18,
     "discount": 0,
-    "description": ""
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
 
   {
@@ -247,7 +247,8 @@
     "price": 799999,
     "type": "accesorios",
     "stock": 23,
-    "discount": 23
+    "discount": 23,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -256,7 +257,8 @@
     "price": 749999,
     "type": "accesorios",
     "stock": 31,
-    "discount": 0
+    "discount": 0,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -265,7 +267,8 @@
     "price": 349999,
     "type": "accesorios",
     "stock": 25,
-    "discount": 10
+    "discount": 10,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -274,7 +277,8 @@
     "price": 349999,
     "type": "accesorios",
     "stock": 18,
-    "discount": 19
+    "discount": 19,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -283,7 +287,8 @@
     "price": 249999,
     "type": "accesorios",
     "stock": 26,
-    "discount": 27
+    "discount": 27,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -292,7 +297,8 @@
     "price": 199999,
     "type": "accesorios",
     "stock": 11,
-    "discount": 0
+    "discount": 0,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -301,7 +307,8 @@
     "price": 499999,
     "type": "smartphone",
     "stock": 29,
-    "discount": 8
+    "discount": 8,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -310,7 +317,8 @@
     "price": 399999,
     "type": "smartphone",
     "stock": 18,
-    "discount": 15
+    "discount": 15,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -319,7 +327,8 @@
     "price": 249999,
     "type": "smartphone",
     "stock": 5,
-    "discount": 19
+    "discount": 19,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -328,7 +337,8 @@
     "price": 399999,
     "type": "smartphone",
     "stock": 29,
-    "discount": 22
+    "discount": 22,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -337,7 +347,8 @@
     "price": 349999,
     "type": "smartphone",
     "stock": 22,
-    "discount": 9
+    "discount": 9,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -346,7 +357,8 @@
     "price": 249999,
     "type": "tablets",
     "stock": 18,
-    "discount": 24
+    "discount": 24,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "brand": "apple",
@@ -355,7 +367,8 @@
     "price": 179999,
     "type": "tablets",
     "stock": 12,
-    "discount": 23
+    "discount": 23,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
 
   {
@@ -365,7 +378,8 @@
     "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-8.4.jpg",
     "type": "tablets",
     "stock": 24,
-    "discount": 8
+    "discount": 8,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "price": 249999,
@@ -374,7 +388,8 @@
     "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-105.jpg",
     "type": "tablets",
     "stock": 17,
-    "discount": 0
+    "discount": 0,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   },
   {
     "price": 199999,
@@ -383,6 +398,7 @@
     "product_img": "http://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-tab-s-105.jpg",
     "type": "tablets",
     "stock": 4,
-    "discount": 16
+    "discount": 16,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
   }
 ]
