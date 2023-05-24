@@ -4,12 +4,8 @@ const { Op } = require("sequelize");
 
 const listProducts = async (req, res) => {
   try {
-    if (req.query.modelName == "") {
-      data = await Products.findAll();
-    } else {
-      const conditions = getConditions(req.query);
-      data = await Products.findAll(conditions);
-    }
+    const conditions = getConditions(req.query);
+    data = await Products.findAll(conditions);
     res.send(data);
   } catch (err) {
     res.status(404).send(err);
@@ -65,6 +61,7 @@ const addProduct = async (req, res) => {
       res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
+    console.log("err", err);
     res.status(404).send(err);
   }
 };
