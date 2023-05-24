@@ -37,7 +37,8 @@ e-commerce de dispositivos moviles y accesiorios.
 - Products: contiene la información de los productos disponibles
 - Users: almacena los datos de los usuarios registrados.
 
-![image](https://github.com/sheinken88/mobile_gear_back/assets/108558268/82cda780-659b-4158-8234-822087fb68aa)
+![image]!![Copy of Copy of Untitled Diagram](https://github.com/sheinken88/mobile_gear_back/assets/125990977/9e2fb09e-eb7d-4a88-9892-0589fd048e08)
+
 
 
 ### Rutas
