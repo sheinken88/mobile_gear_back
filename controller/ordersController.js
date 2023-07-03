@@ -15,51 +15,50 @@ const confirmPurchase = async (req, res) => {
     const order = await Orders.findByPk(user.checkoutId, {
       include: Deliverys,
     });
+    // if (order.status == "checkout") {
 
-    if (order.status == "checkout") {
-      Orders.update({ status: "purchased" }, { where: { id: order.id } });
-      user.setOrders(order);
+    Orders.update({ status: "purchased" }, { where: { id: order.id } });
+    user.setOrders(order);
+    const productorders = await ProductOrders.findAll({
+      where: { orderId: user.checkoutId },
+      include: [Products],
+    });
+    console.log(order);
+    const products = productorders.map((item) => item.product.name).join(", ");
+    let eta = order.delivery.eta;
 
-      const productorders = await ProductOrders.findAll({
-        where: { orderId: user.checkoutId },
-        include: [Products],
-      });
+    const days = [
+      "domingo",
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado",
+    ];
 
-      const products = productorders
-        .map((item) => item.product.name)
-        .join(", ");
-      let eta = order.delivery.eta;
+    eta = `${days[eta.getDay()]} ${eta.getDate().toString()}`;
 
-      const days = [
-        "domingo",
-        "lunes",
-        "martes",
-        "miércoles",
-        "jueves",
-        "viernes",
-        "sábado",
-      ];
+    const to = user.email;
+    const subject = "¡Gracias por tu compra!";
 
-      eta = `${days[eta.getDay()]} ${eta.getDate().toString()}`;
+    const text = `Compraste ${products}\n\nLlega el ${eta}`;
 
-      const to = user.email;
-      const subject = "¡Gracias por tu compra!";
+    // const mailOptions = {
+    //   from: process.env.EMAIL_USER,
+    //   to,
+    //   subject,
+    //   text,
+    // };
 
-      const text = `Compraste ${products}\n\nLlega el ${eta}`;
-
-      const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text,
-      };
-
-      await transporter.sendMail(mailOptions);
-      res.sendStatus(204);
-    } else {
-      res.sendStatus(401);
-    }
+    // await transporter.sendMail(mailOptions);
+    res.sendStatus(204);
+    // }
+    //else {
+    //   res.sendStatus(401);
+    // }
   } catch (err) {
+    console.log(err);
     res.status(500).send(err);
   }
 };
