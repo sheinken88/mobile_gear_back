@@ -61,7 +61,6 @@ const addProduct = async (req, res) => {
       res.status(403).send({ message: "Acceso denegado" });
     }
   } catch (err) {
-    console.log("err", err);
     res.status(404).send(err);
   }
 };
