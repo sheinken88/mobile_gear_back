@@ -15,16 +15,13 @@ const confirmPurchase = async (req, res) => {
     const order = await Orders.findByPk(user.checkoutId, {
       include: Deliverys,
     });
-
     if (order.status == "checkout") {
       Orders.update({ status: "purchased" }, { where: { id: order.id } });
       user.setOrders(order);
-
       const productorders = await ProductOrders.findAll({
         where: { orderId: user.checkoutId },
         include: [Products],
       });
-
       const products = productorders
         .map((item) => item.product.name)
         .join(", ");
@@ -47,14 +44,14 @@ const confirmPurchase = async (req, res) => {
 
       const text = `Compraste ${products}\n\nLlega el ${eta}`;
 
-      const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        text,
-      };
+      // const mailOptions = {
+      //   from: process.env.EMAIL_USER,
+      //   to,
+      //   subject,
+      //   text,
+      // };
 
-      await transporter.sendMail(mailOptions);
+      // await transporter.sendMail(mailOptions);
       res.sendStatus(204);
     } else {
       res.sendStatus(401);
@@ -67,26 +64,26 @@ const confirmPurchase = async (req, res) => {
 const addToCheckout = async (req, res) => {
   try {
     const user = await Users.findByPk(req.user.id);
-    if (!user.checkoutId) {
-      const delivery = await Deliverys.create();
-      const order = await Orders.create({
-        status: "checkout",
-        deliveryId: delivery.id,
+
+    const delivery = await Deliverys.create();
+    const order = await Orders.create({
+      status: "checkout",
+      deliveryId: delivery.id,
+    });
+    order.setUsers(user);
+
+    const { data } = req.body;
+    for (let i = 0; i < data.length; i++) {
+      await ProductOrders.create({
+        orderId: order.id,
+        productId: data[i].id,
+        userId: user.id,
+        qty: data[i].quantity,
       });
-      order.setUsers(user);
-
-      const { data } = req.body;
-      for (let i = 0; i < data.length; i++) {
-        await ProductOrders.create({
-          orderId: order.id,
-          productId: data[i].id,
-          userId: user.id,
-          qty: data[i].quantity,
-        });
-      }
-
-      await Users.update({ checkoutId: order.id }, { where: { id: user.id } });
     }
+
+    await Users.update({ checkoutId: order.id }, { where: { id: user.id } });
+
     res.status(201).send({ message: "Orden agregada" });
   } catch (err) {
     res.status(404).send(err);
