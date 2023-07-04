@@ -73,7 +73,6 @@ const addToCheckout = async (req, res) => {
     order.setUsers(user);
 
     const { data } = req.body;
-    console.log(22, data);
     for (let i = 0; i < data.length; i++) {
       await ProductOrders.create({
         orderId: order.id,
