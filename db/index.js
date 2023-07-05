@@ -9,7 +9,7 @@
 // module.exports = db;
 
 const Sequelize = require("sequelize");
-require("dotenv").config();
+require("dotenv").config({ path: ".env.development.local" });
 
 const db = new Sequelize(process.env.POSTGRES_URL);
 

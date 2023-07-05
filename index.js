@@ -3,7 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const db = require("./db");
 const seeder = require("./seed");
-require("dotenv").config();
+require("dotenv").config({ path: ".env.development.local" });
 
 const routes = require("./routes");
 

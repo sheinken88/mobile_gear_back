@@ -6,7 +6,8 @@ const {
   Deliverys,
 } = require("../models");
 
-require("dotenv").config();
+require("dotenv").config({ path: ".env.development.local" });
+
 const transporter = require("../mailTransporter");
 
 const confirmPurchase = async (req, res) => {
