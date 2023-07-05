@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const db = require("./db");
 const seeder = require("./seed");
+require("dotenv").config();
 
 const routes = require("./routes");
 
@@ -27,7 +28,9 @@ db.sync({ force })
     if (force) {
       seeder();
     }
-    app.listen(8080, () => console.log("Server listening on port 8080"));
+    app.listen(process.env.PORT || 8080, () =>
+      console.log("Server listening on port", process.env.PORT || 8080)
+    );
   })
   .catch(console.error);
 
