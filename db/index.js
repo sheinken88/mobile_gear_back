@@ -11,6 +11,9 @@
 const Sequelize = require("sequelize");
 require("dotenv").config({ path: ".env.development.local" });
 
-const db = new Sequelize(process.env.POSTGRES_URL);
+const db = new Sequelize(process.env.POSTGRES_URL, {
+  dialectModule: require("pg"),
+  logging: false,
+});
 
 module.exports = db;
