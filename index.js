@@ -23,8 +23,12 @@ app.use("/", routes);
 
 const force = false;
 
-db.sync({ force })
-  .then(function () {
+db.authenticate()
+  .then(() => {
+    console.log("Database connection has been established successfully.");
+    return db.sync({ force });
+  })
+  .then(() => {
     if (force) {
       seeder();
     }
