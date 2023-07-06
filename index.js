@@ -11,6 +11,10 @@ const app = express();
 
 app.use(express.json());
 
+app.use(cors({
+    origin: 'https://mobile-gear-front-hx79ugbuz-alba-97.vercel.app'
+}));
+
 app.use(cookieParser());
 
 app.use("/", routes);
@@ -24,6 +28,6 @@ db.sync({ force })
     }
     app.listen(8080, () => console.log("Server listening on port 8080"));
   })
-  .catch((error) => console.log(123, error));
+  .catch((error) => console.log(error));
 
 module.exports = app;
