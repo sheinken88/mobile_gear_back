@@ -2,13 +2,12 @@ require("dotenv").config();
 const Sequelize = require("sequelize");
 
 const db = new Sequelize(
-  "ecommercedb",
+  process.env.DB_URL,
   process.env.DB_USER,
-  process.env.PASSWORD,
+  process.env.DB_PASSWORD,
   {
-    host: "localhost",
+    host: process.env.DB_HOSTNAME,
     dialect: "postgres",
-    logging: false,
   }
 );
 
