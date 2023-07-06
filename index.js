@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const db = require("./db");
 const seeder = require("./seed");
+require("dotenv").config();
 
 const routes = require("./routes");
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.URL,
     credentials: true,
   })
 );
