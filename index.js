@@ -31,6 +31,6 @@ db.sync({ force })
     }
     app.listen(8080, () => console.log("Server listening on port 8080"));
   })
-  .catch((error) => console.log(123, error));
+  .catch((error) => console.log(123, process.env.DB_URL, error));
 
 module.exports = app;
