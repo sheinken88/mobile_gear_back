@@ -28,7 +28,7 @@ db.sync({ force })
     if (force) {
       seeder();
     }
-    app.listen(3000, () =>
+    app.listen(process.env.POSTGRES_URL || 8080, () =>
       console.log("Server listening on port", process.env.PORT || 8080)
     );
   })
