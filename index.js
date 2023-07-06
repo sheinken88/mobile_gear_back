@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://mobile-gear-front.vercel.app/",
     credentials: true,
   })
 );
@@ -28,7 +28,7 @@ db.sync({ force })
     if (force) {
       seeder();
     }
-    app.listen(process.env.PORT || 8080, () =>
+    app.listen(3000, () =>
       console.log("Server listening on port", process.env.PORT || 8080)
     );
   })
