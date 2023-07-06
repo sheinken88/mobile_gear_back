@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use("/", routes);
 
-const force = false;
+const force = true;
 
 db.sync({ force })
   .then(function () {
@@ -31,6 +31,6 @@ db.sync({ force })
     }
     app.listen(8080, () => console.log("Server listening on port 8080"));
   })
-  .catch((error) => console.log(123, process.env.DB_URL, error));
+  .catch((error) => console.log(123, error));
 
 module.exports = app;
